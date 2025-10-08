@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booma Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background-color: #f9f9f9; }
+    header { background-color: #e3f2fd; padding: 20px; text-align: center; }
+    header h1 { margin: 0; color: #333; }
+    nav { text-align: center; margin: 10px 0; }
+    nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: bold; }
+    .container { width: 90%; margin: auto; padding: 20px 0; }
+    .product { display: inline-block; width: 200px; margin: 15px; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 0 5px #ccc; text-align: center; }
+    .product img { width: 100%; height: auto; border-radius: 5px; }
+    footer { background-color: #e3f2fd; text-align: center; padding: 10px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Booma Store</h1>
+    <p>Wholesale & Retail Stationery</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" class="container">
+    <h2>Welcome to Booma Store</h2>
+    <p>Your one-stop shop for all stationery needs – pencils, notebooks, pens, and more!</p>
+  </section>
+
+  <section id="products" class="container">
+    <h2>Our Products</h2>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1581091215364-5f2c2d1e12b3" alt="Pencil">
+      <h3>Pencil</h3>
+      <p>₹10</p>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1599950634098-34c2f7f5d062" alt="Notebook">
+      <h3>Notebook</h3>
+      <p>₹50</p>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1584697964401-ffbc6c8f3f9f" alt="Pen">
+      <h3>Pen</h3>
+      <p>₹20</p>
+    </div>
+    <!-- Add more products similarly -->
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contact Us</h2>
+    <p>Phone: +91-XXXXXXXXXX</p>
+    <p>Email: booma@example.com</p>
+    <p><a href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp Us</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Booma Store</p>
+  </footer>
+</body>
+</html>
