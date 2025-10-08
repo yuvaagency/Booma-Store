@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booma Store - WhatsApp Multi Order</title>
+<style>
+body { font-family: Arial; background: #fdfdfd; margin:0; padding:0; }
+header { background: #e0f7fa; text-align:center; padding:20px; }
+header h1 { margin:0; color:#00796b; }
+.container { width: 90%; margin:auto; padding:20px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
+.product { background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center; }
+.product img { width:100%; height:150px; object-fit:contain; border-radius:5px; }
+.product h3 { color:#00796b; margin:10px 0 5px; }
+.product p { color:#004d40; font-weight:bold; margin:5px 0; }
+input[type=number] { width:50px; padding:5px; margin-top:5px; }
+.order-btn { background:#25D366; color:#fff; padding:10px 15px; border:none; border-radius:5px; cursor:pointer; margin-top:10px; }
+.order-btn:hover { background:#128C7E; }
+footer { background-color: #e0f7fa; text-align:center; padding:15px; margin-top:20px; }
+footer p { margin:0; color:#004d40; }
+</style>
+</head>
+<body>
+<header>
+<h1>Booma Store</h1>
+<p>Wholesale & Retail Stationery</p>
+</header>
+<div class="container">
+<h2>Our Products</h2>
+<div class="grid">
+
+<div class="product">
+  <img src="images/pencil.jpg" alt="Pencil">
+  <h3>Pencil</h3>
+  <p>₹10</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Pencil" data-price="10"></label>
+</div>
+
+<div class="product">
+  <img src="images/notebook.jpg" alt="Notebook">
+  <h3>Notebook</h3>
+  <p>₹50</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Notebook" data-price="50"></label>
+</div>
+
+<div class="product">
+  <img src="images/pen.jpg" alt="Pen">
+  <h3>Pen</h3>
+  <p>₹20</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Pen" data-price="20"></label>
+</div>
+
+<div class="product">
+  <img src="images/eraser.jpg" alt="Eraser">
+  <h3>Eraser</h3>
+  <p>₹5</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Eraser" data-price="5"></label>
+</div>
+
+<div class="product">
+  <img src="images/ruler.jpg" alt="Ruler">
+  <h3>Ruler</h3>
+  <p>₹15</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Ruler" data-price="15"></label>
+</div>
+
+<div class="product">
+  <img src="images/sharpener.jpg" alt="Sharpener">
+  <h3>Sharpener</h3>
+  <p>₹8</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Sharpener" data-price="8"></label>
+</div>
+
+<div class="product">
+  <img src="images/crayons.jpg" alt="Crayons">
+  <h3>Crayons</h3>
+  <p>₹30</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Crayons" data-price="30"></label>
+</div>
+
+<div class="product">
+  <img src="images/markers.jpg" alt="Markers">
+  <h3>Markers</h3>
+  <p>₹40</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Markers" data-price="40"></label>
+</div>
+
+<div class="product">
+  <img src="images/notepad.jpg" alt="Notepad">
+  <h3>Notepad</h3>
+  <p>₹60</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Notepad" data-price="60"></label>
+</div>
+
+<div class="product">
+  <img src="images/glue.jpg" alt="Glue Stick">
+  <h3>Glue Stick</h3>
+  <p>₹25</p>
+  <label>Qty: <input type="number" min="0" value="0" class="qty" data-name="Glue Stick" data-price="25"></label>
+</div>
+
+</div>
+
+<button class="order-btn" onclick="sendWhatsAppOrder()">Send Order via WhatsApp</button>
+</div>
+<footer>
+<p>&copy; 2025 Booma Store</p>
+</footer>
+<script>
+function sendWhatsAppOrder() {
+  const phone = "919171444222";
+  let message = "Hi! I want to order:%0A";
+  let total = 0;
+  const items = document.querySelectorAll(".qty");
+  let hasItem = false;
+  items.forEach(item => {
+    const qty = parseInt(item.value);
+    const name = item.dataset.name;
+    const price = parseInt(item.dataset.price);
+    if(qty > 0){
+      message += `${name} x ${qty} = ₹${qty*price}%0A`;
+      total += qty*price;
+      hasItem = true;
+    }
+  });
+  if(!hasItem){
+    alert("Please select at least one product!");
+    return;
+  }
+  message += `Total: ₹${total}`;
+  const url = `https://wa.me/${phone}?text=${message}`;
+  window.open(url, "_blank");
+}
+</script>
+</body>
+</html>
